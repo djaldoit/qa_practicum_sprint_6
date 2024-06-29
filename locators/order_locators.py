@@ -5,7 +5,7 @@ class OrderLocators:
 
     # Кнопка "Заказать"
     ORDER_BUTTON_HEADER = [By.XPATH, "//button[text()='Заказать']"]
-    ORDER_CENTER_BUTTON = [By.XPATH, '//button[@class="Button_Button__ra12g Button_UltraBig__UU3Lp"]']
+    ORDER_CENTER_BUTTON = [By.XPATH, '(//button[text()="Заказать"])[2]']
 
     # Данные пользователя
     NAME = [By.XPATH, "//input[@placeholder='* Имя']"]
@@ -29,5 +29,5 @@ class OrderLocators:
     YES_BUTTON = [By.XPATH, ".//button[text()='Да']"]
 
     # Текс окна "Заказ оформлен"
-    ORDER_COMPLETED = [By.XPATH, '//div[@class="Order_ModalHeader__3FDaJ"]']
+    ORDER_COMPLETED = [By.XPATH, '//div[contains(text(), "Заказ оформлен")]']
 

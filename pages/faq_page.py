@@ -1,5 +1,7 @@
 import allure
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 from data import Urls
 from conftest import browser
 from locators.faq_locators import FaqLocators
@@ -19,9 +21,8 @@ class QuestionsPage:
 
     @allure.step("Извлечение вопроса")
     def get_question(self, browser, index):
-        # (By.XPATH, '(//div[@class="accordion__button"])[{}]'.format(index))
         question_locator = (FaqLocators.QUESTION[0], FaqLocators.QUESTION[1].format(index))
-        question = browser.find_element(*question_locator)
+        question = WebDriverWait(browser, 3).until(ec.element_to_be_clickable(question_locator))
         question.click()
         return question.text
 
